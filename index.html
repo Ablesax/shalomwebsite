@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSO SHALOM PORTFOLIO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-I0A3gEN..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link rel="stylesheet" href="./portfolio.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="./index.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <h2 class="logo" style="color:white;">MY PORTFOLIO</h2>
+    <button id="burger" class="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav" class="nav">
+        <li><button id="close-nav" class="close" aria-label="Close menu">×</button></li>
+      <li><a href="#hero">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#gallery">GALLERY</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+<script>
+  
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  // const closeBtn = document.getElementById('close-nav');
+  
+  // Toggle menu on burger click
+  burger.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+
+  // Close menu when any link is clicked
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('show'); // closes menu
+    });
+  });
+
+</script>
+
+
+  <!-- ── Home ────────────────────────────────── -->
+  <section id="hero" class="hero">
+     <div class="hero-content">
+    <h1>Hello, I’m <span class="accent">Oso Shalom</span></h1>
+    <h2><span id="typing"></span></h2>
+    <a href="#projects" class="btn">See Projects</a>
+  <script > 
+  /*typing effect */
+const typingEl = document.getElementById('typing');
+const words = ['a Web Developer','a Machine‑Learning Engineer','a Data Analyst','a Creative Thinker','a Data Scientist', 'a Saxophonist'];
+let w = 0, c = 0, del = false;
+(function type(){
+  const word = words[w];
+  typingEl.textContent = del ? word.slice(0,--c) : word.slice(0,++c);
+  if(!del && c === word.length){del=true;setTimeout(type,1200);}
+  else if(del && c===0){del=false;w=(w+1)%words.length;setTimeout(type,500);}
+  else setTimeout(type, del?60:100);
+})();</script>
+<script>
+  const hero = document.getElementById('hero');
+
+  const images = [
+    'IMG_7696.JPG',
+    '20.jpg',
+    '15.jpg',
+     '9.jpg',
+    '5.jpg',
+    '1.jpg',
+    '11.jpg',
+    '16.jpg',
+    '14.jpg',
+    '18.jpg',
+     '17.jpg',
+     'IMG_9456.JPG',
+    '19.jpg',
+    '27.jpg',
+    '29.jpg'
+  ];
+
+  let index = 0;
+
+  function changeBackground() {
+    hero.style.backgroundImage = `url('${images[index]}')`;
+    index = (index + 1) % images.length;
+  }
+
+  // Initial call
+  changeBackground();
+
+  // Change every 5 seconds
+  setInterval(changeBackground, 3500);
+</script>
+
+    </div>
+  </section>
+
+  <section id="about" class="section about" class="section-title">
+    <div class="container">
+    <h2 class="section-title" style="text-align: center;">About Me</h2>
+   <div class="about-content">
+    <div class="about-text">
+    <p> I’m a <strong>full‑stack developer</strong> with a passion for turning ideas
+        into elegant, performant web experiences.I’m a passionate, results‑driven developer
+         who transforms bold ideas into impactful solutions. While pursuing a Computer Science
+          degree at Bells University, I’ve melded strong front‑end foundations—HTML, CSS, 
+          JavaScript/TypeScript, and React—with data‑driven back‑end work in Node.js and
+           Python. My analytical edge sharpened during a <strong>CodSoft</strong> internship, where I
+            delivered end‑to‑end machine‑learning projects such as SMS‑spam detection 
+            and fraud‑prediction pipelines.
+
+Now interning at <strong>SAHCO PLC</strong>, I’m spearheading the development of an AI chatbot on a five‑month
+ timeline, tackling everything from architecture to user testing. Simultaneously, I’m expanding
+  my analytics expertise through PwC’s Power BI Digital Accelerator program, learning how to
+   turn raw data into clear, strategic insight for stakeholders.
+
+Beyond code, I channel creativity through saxophone performances, which enriches my sense of
+ rhythm and flow in user‑experience design. Regular participation in sports keeps my focus 
+ sharp and fosters the resilience and collaborative spirit that I bring to every project. 
+ By blending robust engineering skills with analytical rigor and artistic intuition, I 
+ consistently deliver innovative, high‑impact technology solutions.</p>
+ </div></div> </div></section>
+
+ <!-- ── Projects ────────────────────────────── -->
+  <section id="projects" class="section projects">
+    <h2 class="section-title" style="text-align: center;">Projects</h2>
+
+    <div class="projects-grid">
+      <!-- Project card 1 -->
+      <article class="card">
+        <img src="./images.jpg" alt="Project 1 screenshot" />
+        <div class="card-body">
+          <h3>SMS Spam Detector</h3>
+          <p>Machine‑learning model that flags fraudulent SMS in real‑time (97 % precision).</p>
+          <a href="https://github.com/Ablesax/CODSOFT/blob/main/SPAM%20MAIL%20DETECTION/spam%20sms%20detection.ipynb" class="card-link" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+
+      <!-- Project card 2 -->
+      <article class="card">
+        <img src="./images (1).jpg" alt="Project 2 screenshot" />
+        <div class="card-body">
+          <h3>Movie Genre Classifier</h3>
+          <p>NLP pipeline that predicts genres from plot summaries; served with FastAPI.</p>
+          <a href="https://github.com/Ablesax/CODSOFT/blob/main/MOVIE%20GENRE%20CLASSIFICATION/movie%20genre%20classification.ipynb" class="card-link" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+
+      <!-- Project card 3 -->
+      <article class="card">
+        <img src="./images (2).jpg" alt="Project 3 screenshot" />
+        <div class="card-body">
+          <h3>Credit Card Fraud Detection</h3>
+          <p>A Credit card fraud detection system that can easily detect a fraudulent activity</p>
+          <a href="https://github.com/Ablesax/CODSOFT/blob/main/CREDIT%20CARD%20FRAUD%20DETECTION/credit%20card%20fraud%20detection.ipynb" class="card-link" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+
+      <!-- Project card 4 -->
+      <article class="card">
+        <img src="./image1-02.jpg" alt="Project 4 screenshot" />
+        <div class="card-body">
+          <h3>Customer churn Prediction</h3>
+          <p>Machine‑learning model that predicts customer churn based on recent activities</p>
+          <a href="https://github.com/Ablesax/CODSOFT/blob/main/CUSTOMER%20CHURN%20PREDICTION/customer%20churn%20prediction.ipynb" class="card-link" target="_blank">GitHub ↗</a>
+        </div>
+      </article>
+
+      <!-- Project card 5 -->
+      <article class="card">
+        <img src="./student writing in notebook.jpg" alt="Project 5 screenshot" />
+        <div class="card-body">
+          <h3>Difference - An Edtech Solution</h3>
+          <p>An  LMS where students can learn and also earn money.</p>
+          <a href="https://difference-lms.vercel.app/" class="card-link" target="_blank">Live Demo ↗</a>
+        </div>
+      </article>
+
+      <!-- Project card 6 -->
+      <article class="card">
+        <img src="./0eeeb7cd-a242-41ee-bbb2-2417efd0d9fb.jpg" alt="Project 6 screenshot" />
+        <div class="card-body">
+          <h3>Agrictech Solution -- Fermwise</h3>
+          <p>Built a web application that's integrated with a physical device in real time to solve food insecurity.</p>
+          <a href="https://fermwise.vercel.app/" class="card-link" target="_blank">Live Demo ↗</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+
+<section id="gallery" >
+  <h2 style="text-align: center;" class="section-title">Gallery</h2>
+  <div class="gallery-wrapper">
+    <button class="scroll-btn left" onclick="scrollGallery(-1)">&#10094;</button>
+
+    <div class="gallery-scroll" id="galleryScroll">
+       <img src="./19.jpg" alt="Shalom ready for a presentation" onclick="openModal(this)" />
+      <img src="./18.jpg" alt="shalom, his team mates and Cordinators during Unduel National Competion"  onclick="openModal(this)"/>
+      <img src="./17.jpg" alt="Shalom and his team mates during unduel National Competition" onclick="openModal(this)" />
+      <img src="./16.jpg" alt="Shalom and his team mates during unduel National Competition"  onclick="openModal(this)" />
+       <img src="./15.jpg" alt="Shalom and his team mates during unduel National Competition"  onclick="openModal(this)"/>
+      <img src="./14.jpg" alt="Shalom and his team mates during unduel National Competition"  onclick="openModal(this)"/>
+      <img src="./13.jpg" alt="Shalom and his team mates during unduel National Competition"  onclick="openModal(this)"/>
+       <img src="./12.jpg" alt="Shalom and his team mates during unduel National Competition"  onclick="openModal(this)"/>
+      <img src="./11.jpg" alt="Shalom and his team mates during unduel National Competition"  onclick="openModal(this)"/>
+      <img src="./10.jpg" alt="Shalom and his team mates during unduel National Competition"  onclick="openModal(this)"/>
+      <img src="./9.jpg" alt="shalom, his course advisor and his course rep"  onclick="openModal(this)"/>
+       <img src="./8.jpg" alt="Shalom at kings court for a seminar"  onclick="openModal(this)"/>
+      <img src="./7.jpg" alt="His mother 50th Birthday"  onclick="openModal(this)"/>
+      <img src="./6.jpg" alt="His mother 50th Birthday"  onclick="openModal(this)"/>
+      <img src="./5.jpg" alt="His mother 50th Birthday"  onclick="openModal(this)"/>
+       <img src="./4.jpg" alt="JAC CHOIR FAMILY"  onclick="openModal(this)"/>
+      <img src="./3.jpg" alt="BRICXITY CHOIR FAMILY"  onclick="openModal(this)"/>
+      <img src="./2.jpg" alt="Birthday suprise for his course advisor"  onclick="openModal(this)"/>
+       <img src="./1.jpg" alt="Birthday suprise for his course advisor"  onclick="openModal(this)"/>
+      <img src="./20.jpg" alt="Group picture with Bells University Vice Chancellor"  onclick="openModal(this)"/>
+      <img src="./21.jpg" alt=""  onclick="openModal(this)"/>
+      <img src="./22.jpg" alt="D'Trybe band members"  onclick="openModal(this)"/>
+     <img src="./23.jpg" alt="Shalom at University Duel Competition"  onclick="openModal(this)"/>
+       <img src="./24.jpg" alt="Shalom at University Duel Competition"  onclick="openModal(this)"/>
+      <img src="./25.jpg" alt="Shalom at University Duel Competition"  onclick="openModal(this)"/>
+      <img src="./26.jpg" alt="Shalom and his Unduel Team mates"  onclick="openModal(this)"/>
+       <img src="./27.jpg" alt="Shalom and his Unduel Team mates"  onclick="openModal(this)"/>
+      <img src="./28.jpg" alt="Unduel National Competion Prize giving day"  onclick="openModal(this)"/>
+      <img src="./29.jpg" alt="Unduel National Competion Prize giving day"  onclick="openModal(this)"/>
+      <img src="./30.jpg" alt="Unduel National Competion Prize giving day"  onclick="openModal(this)"/>
+     <img src="./31.jpg" alt="Unduel National Competion Prize giving day"  onclick="openModal(this)"/>
+      <img src="./IMG_7696.JPG" alt="Shalom giving report of the National competition to Bells University Board members"  onclick="openModal(this)"/>
+      <img src="./IMG_9456.JPG" alt="Shalom Live at In the Wood with Stickz"  onclick="openModal(this)"/>
+    </div>
+       
+<!-- Modal (Hidden by default) -->
+<div id="imageModal" class="modal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Zoomed View">
+    <p id="modalCaption" class="modal-caption"></p>
+  </div>
+</div>
+      
+     
+<script>
+  function openModal(image) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const caption = document.getElementById("modalCaption");
+
+    modal.style.display = "block";
+    modalImg.src = image.src;
+    caption.textContent = image.alt;
+  }
+
+  function closeModal(event) {
+    if (event.target.id === "imageModal") {
+      document.getElementById("imageModal").style.display = "none";
+    }
+  }
+</script>
+
+    <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
+  </div>
+</section>
+
+<script>
+  function scrollGallery(direction) {
+  const gallery = document.getElementById('galleryScroll');
+  const scrollAmount = gallery.clientWidth * 0.6; // Adjust scroll amount if needed
+  gallery.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}
+</script>
+<!-- ── Contact ─────────────────────────────── -->
+  <section id="contact" class="section contact">
+    <h2 class="section-title" style="text-align: center;">Get in Touch</h2>
+  
+    <form action="https://formspree.io/f/myzwqpyp" method="POST"  id="contact-form" class="contact-form">
+      <div class="form-row" style="align-items: center;">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+      <div style="align-items: center;" class="sendk"><button type="submit" class="btn" style="align-items: center;">Send Message</button></div>
+    </form>
+  </section>
+
+
+  <footer class="footer">
+    <div class="social-text">
+      <a href="mailto:shalomableone@gmail.com">shalomableone@gmail.com</a> |
+      <a href="tel:+2349039984343">+234 9039984343</a>
+    </div>
+      <div class="social-icons">
+    <a href="https://x.com/shalom_ablesax?s=11"   aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/ablesax?igsh=aDhhdGp4MzNuMW95&utm_source=qr" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/Ablesax"    aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/ososhalom?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <small>&copy; <span id="year"></span> Oso Shalom Oluwafikayomi. All rights reserved.</small>
+  </footer>
+
+  <script>
+    
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // document.getElementById('contact-form').addEventListener('submit', function(e) {
+    //   e.preventDefault();
+    //   alert('Thanks! Your message has been sent ✅');
+    //   this.reset();
+    // });
+  </script>
+  
+</body>
+</html>
